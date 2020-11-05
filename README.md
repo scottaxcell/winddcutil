@@ -1,5 +1,5 @@
 # winddcutil
-Windows implementation of the ddcutil Linux program for querying and changing monitor settings, such as brightness and color levels.
+Windows implementation of the [ddcutil](https://github.com/rockowitz/ddcutil) Linux program for querying and changing monitor settings, such as brightness and color levels.
 
 ## Usage
 ```
