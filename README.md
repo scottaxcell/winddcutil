@@ -3,8 +3,9 @@ Windows implementation of the [ddcutil](https://github.com/rockowitz/ddcutil) Li
 
 ## Usage
 ```
-Usage: windcutil command [<arg> ...]
+Usage: winddcutil command [<arg> ...]
 Commands:
+        help                                           Display help
         detect                                         Detect monitors
         capabilities <display-id>                      Query monitor capabilities
         getvcp <display-id> <feature-code>             Report VCP feature value
