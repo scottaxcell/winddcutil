@@ -4,7 +4,7 @@ Windows implementation of the [ddcutil](https://github.com/rockowitz/ddcutil) Li
 
 ## Usage
 
-```bat
+```
 Usage: winddcutil command [<arg> ...]
 Commands:
         help                                           Display help
