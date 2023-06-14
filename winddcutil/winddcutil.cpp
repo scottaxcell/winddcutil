@@ -121,14 +121,14 @@ int getVcp(std::vector<std::string> args) {
 	bool success = GetVCPFeatureAndVCPFeatureReply(physicalMonitorHandle, vcpCode, NULL, &currentValue, NULL);
 	if (!success) {
 		std::cerr << "Failed to get the vcp code value" << std::endl;
-		return success;
+		return 1;
 	}
 
 	std::stringstream ss;
 	ss << std::hex << currentValue;
 	std::cout << "VCP " << args[1] << " " << ss.str() << std::endl;
 
-	return success;
+	return 0;
 }
 
 int setVcp(std::vector<std::string> args) {
@@ -156,9 +156,11 @@ int setVcp(std::vector<std::string> args) {
 	}
 
 	bool success = SetVCPFeature(physicalMonitors[displayId].hPhysicalMonitor, vcpCode, newValue);
-	if (!success)
+	if (!success) {
 		std::cerr << "Failed to set vcp feature" << std::endl;
-	return success;
+		return 1;
+	}
+	return 0;
 }
 
 std::unordered_map<std::string, std::function<int(std::vector<std::string>)>> commands
