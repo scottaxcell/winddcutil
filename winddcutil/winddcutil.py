@@ -76,3 +76,14 @@ def capabilities(args) -> None:
 
     logger.error("display number did not match any known device ids")
     sys.exit(1)
+
+
+def set_vcp_feature(args) -> None:
+    for i, monitor in enumerate(get_monitors()):
+        with monitor:
+            if i == args.display:
+                monitor.vcp.set_vcp_feature(args.feature_code, args.new_value)
+                sys.exit(0)
+
+    logger.error("display number did not match any known device ids")
+    sys.exit(1)

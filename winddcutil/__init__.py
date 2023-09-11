@@ -1,6 +1,6 @@
 import logging
 
-from .winddcutil import capabilities, detect, playground
+from .winddcutil import capabilities, detect, set_vcp_feature
 
 logging.basicConfig()
 logger = logging.getLogger()
