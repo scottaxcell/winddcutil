@@ -3,7 +3,7 @@
 import argparse
 from typing import List, Optional
 
-from . import capabilities, detect, set_vcp_feature
+from .winddcutil import capabilities, detect, get_vcp_feature, set_vcp_feature
 
 
 def main(argv: Optional[List[str]] = None):
@@ -26,14 +26,12 @@ def get_parser() -> argparse.ArgumentParser:
         "capabilities", help="Query monitor capabilities"
     )
     parser_capabilities.add_argument(
-        "display", action="store", type=int, help="Display number"
+        "display", action="store", type=int, help="Display id"
     )
     parser_capabilities.set_defaults(func=capabilities)
 
     parser_set_vcp = subparsers.add_parser("setvcp", help="Set VCP feature value")
-    parser_set_vcp.add_argument(
-        "display", action="store", type=int, help="Display number"
-    )
+    parser_set_vcp.add_argument("display", action="store", type=int, help="Display id")
     parser_set_vcp.add_argument(
         "feature_code",
         action="store",
@@ -44,6 +42,16 @@ def get_parser() -> argparse.ArgumentParser:
         "new_value", action="store", type=maybe_decimal_or_hex, help="New value"
     )
     parser_set_vcp.set_defaults(func=set_vcp_feature)
+
+    parser_get_vcp = subparsers.add_parser("getvcp", help="Get VCP feature value")
+    parser_get_vcp.add_argument("display", action="store", type=int, help="Display id")
+    parser_get_vcp.add_argument(
+        "feature_code",
+        action="store",
+        type=maybe_decimal_or_hex,
+        help="Feature code",
+    )
+    parser_get_vcp.set_defaults(func=get_vcp_feature)
 
     return parser
 
