@@ -1,3 +1,5 @@
+"""Main entry point for the winddcutil CLI"""
+
 import argparse
 from typing import List, Optional
 

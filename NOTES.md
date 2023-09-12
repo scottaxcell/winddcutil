@@ -5,9 +5,8 @@ monitorcontrol docs: https://newam.github.io/monitorcontrol/
 Environment
 
 ```
-py -3 -m venv .venv
+py -3 -m venv --upgrade-deps .venv
 .venv\Scripts\activate.bat
-
 
 pip install --upgrade pip setuptools
 pip install monitorcontrol
@@ -20,4 +19,10 @@ Installer
 pyinstaller winddcutil.py
 
 dist\winddcutil\winddcutil.exe
+```
+
+Pre-commit, run manually
+
+```
+pre-commit run -a
 ```
