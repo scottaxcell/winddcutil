@@ -1,10 +1,8 @@
-import logging
 import sys
 from typing import Callable, Dict
 
 from monitorcontrol import Monitor, get_monitors
-
-logger = logging.getLogger()
+from monitorcontrol.vcp import VCPError
 
 
 def detect(args: Dict[str, str]) -> None:  # pylint: disable=unused-argument
@@ -52,7 +50,11 @@ def _with_monitor(
     for i, monitor in enumerate(get_monitors()):
         with monitor:
             if i == args.display:
-                handler(args, monitor)
+                try:
+                    handler(args, monitor)
+                except VCPError as e:
+                    print(f"ERROR: {e}", file=sys.stderr)
+                    sys.exit(1)
 
-    logger.error("display id did not match any known device ids")
+    print("ERROR: display id did not match any known device ids", file=sys.stderr)
     sys.exit(1)
