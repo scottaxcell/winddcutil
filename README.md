@@ -48,8 +48,6 @@ Initialize Python virtual environment
 ```
 py -3 -m venv --upgrade-deps .venv
 .venv\Scripts\activate.bat
-
-pip install --upgrade pip setuptools
 pip install -r requirements.txt
 ```
 
