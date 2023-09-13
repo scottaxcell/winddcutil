@@ -1,15 +1,13 @@
-"""Main entry point for the winddcutil CLI"""
-
 import argparse
 from typing import List, Optional
 
 from .winddcutil import capabilities, detect, get_vcp_feature, set_vcp_feature
 
 
-def main(argv: Optional[List[str]] = None):
+def main(argv: Optional[List[str]] = None) -> None:
     parser = get_parser()
-    args = parser.parse_args(argv)
-    args = args.func(args)
+    args = parser.parse_args(argv if argv else ["--help"])
+    args.func(args)
 
 
 def get_parser() -> argparse.ArgumentParser:

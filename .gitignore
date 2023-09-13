@@ -10,7 +10,8 @@ __pycache__/
 .Python
 build/
 develop-eggs/
-dist/
+dist/*
+!dist/winddcutil.exe
 downloads/
 eggs/
 .eggs/

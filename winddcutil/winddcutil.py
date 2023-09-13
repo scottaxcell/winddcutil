@@ -52,8 +52,8 @@ def _with_monitor(
             if i == args.display:
                 try:
                     handler(args, monitor)
-                except VCPError as e:
-                    print(f"ERROR: {e}", file=sys.stderr)
+                except VCPError as error:
+                    print(f"ERROR: {error}", file=sys.stderr)
                     sys.exit(1)
 
     print("ERROR: display id did not match any known device ids", file=sys.stderr)

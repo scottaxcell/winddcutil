@@ -16,9 +16,8 @@ pip install pyinstaller
 Installer
 
 ```
-pyinstaller winddcutil.py
-
-dist\winddcutil\winddcutil.exe
+pyinstaller cli.py --name winddcutil --onefile
+dist\winddcutil.exe
 ```
 
 Pre-commit, run manually
