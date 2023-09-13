@@ -8,7 +8,7 @@ from monitorcontrol.vcp import VCPError
 def detect(args: Dict[str, str]) -> None:  # pylint: disable=unused-argument
     for i, monitor in enumerate(get_monitors()):
         with monitor:
-            print(i, monitor.vcp.description)
+            print(i + 1, monitor.vcp.description)
     sys.exit(0)
 
 
@@ -49,7 +49,7 @@ def _with_monitor(
 ) -> None:
     for i, monitor in enumerate(get_monitors()):
         with monitor:
-            if i == args.display:
+            if i + 1 == args.display:
                 try:
                     handler(args, monitor)
                 except VCPError as error:
