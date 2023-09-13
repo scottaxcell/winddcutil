@@ -6,8 +6,8 @@
 
 @REM Get the current input source VCP value
 @REM Reading command output reference: https://devblogs.microsoft.com/oldnewthing/20120731-00/?p=7003
-set WINDDCUTIL=C:\dev\winddcutil\x64\Release\winddcutil.exe
-for /f "tokens=1-2, 3" %%i in ('%WINDDCUTIL%  getvcp 0 60') do ^
+set WINDDCUTIL=C:\dev\winddcutil\dist\winddcutil.exe
+for /f "tokens=1-2, 3" %%i in ('%WINDDCUTIL%  getvcp 1 60') do ^
 if "%%i %%j"=="VCP 60" set VCP_VALUE=%%k
 
 @REM Toggle input source VCP value. These values are specific to the VG27AQ monitor.
@@ -19,5 +19,5 @@ if %VCP_VALUE%==12 (
 
 @REM Set new input source VCP value.
 if defined NEW_VCP_VALUE (
-	%WINDDCUTIL% setvcp 0 60 %NEW_VCP_VALUE%
+	%WINDDCUTIL% setvcp 1 60 %NEW_VCP_VALUE%
 )
