@@ -57,6 +57,12 @@ Build standalone distributable [dist\winddcutil.exe]
 pyinstaller cli.py --name winddcutil --onefile
 ```
 
+Run tests
+
+```
+pytest test
+```
+
 Run pre-commit checks on all files
 
 ```
