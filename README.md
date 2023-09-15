@@ -4,7 +4,10 @@ Windows implementation of the [ddcutil](https://github.com/rockowitz/ddcutil) Li
 
 ## News
 
-[09-2023] Good news, `winddcutil` has been ported from C++ to Python! We use the API provided by the [monitorcontrol](https://github.com/newAM/monitorcontrol) Python package.
+### Release [2.0.0] - 2023-09-15
+
+- Good news, `winddcutil` has been ported to Python! We use the API provided by the [monitorcontrol](https://github.com/newAM/monitorcontrol) Python package.
+- See the [CHANGELOG](https://github.com/scottaxcell/winddcutil/blob/main/CHANGELOG.md) for additional details.
 
 ## Usage
 
